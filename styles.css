@@ -127,7 +127,7 @@ input[type="text"]:focus {
 canvas {
   border: 1px solid #ccc;
   border-radius: 10px;
-  background: url('campus_map1.jpg') no-repeat center top;
+  background: url('campus\ image2.png') no-repeat center top;
   background-size: contain;
   margin: 0 auto;
   display: block;
