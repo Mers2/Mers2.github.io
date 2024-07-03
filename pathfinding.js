@@ -1,5 +1,5 @@
 const importantNodes = [
-    { id: 'Kolej Kerawang', x: 450, y: 500, lat: 5.260927, lon: 103.165455, edges: [] },
+    { id: 'Kolej Kerawang', x: 450, y: 500, lat: 5.26091, lon: 103.16593, edges: [] }, 
     { id: 'Dewan Lestari', x: 450, y: 185, lat: 5.262432, lon: 103.165938, edges: [] },
     { id: "Cafe", x: 450, y: 150, lat: 5.262686, lon: 103.165842, edges: [] },
     { id: 'Surau UiTM', x: 450, y: 340, lat: 5.261557, lon: 103.165987, edges: [] },
@@ -35,10 +35,10 @@ const graph = {
     "Pondok Polis Bantuan 2": { id: "Pondok Polis Bantuan 2", x: 470, y: 425, edges: [] },
     "Pejabat Kolej": { id: "Pejabat Kolej", x: 455, y: 445, edges: [] },
 
-    "Kolej Kerawang": { id: "Kolej Kerawang", x: 450, y: 500, lat: 5.261087, lon: 103.165920, edges: [] },
-    "MASMED": { id: "MASMED", x: 455, y: 535, lat: 5.260927, lon: 103.165455, edges: [] },
-    "Blok Kasa": { id: "Blok Kasa", x: 455, y: 445, lat: 5.260965, lon: 103.165917, edges: [] },
-    "Blok Sutera": { id: "Blok Sutera", x: 455, y: 535, lat: 5.260409, lon: 103.165907, edges: [] }, 
+    "Kolej Kerawang": { id: "Kolej Kerawang", x: 450, y: 500, lat: 5.26069, lon: 103.16591, edges: [] },
+    "MASMED": { id: "MASMED", x: 455, y: 535, edges: [] },
+    "Blok Kasa": { id: "Blok Kasa", x: 455, y: 445, lat: 5.26091, lon: 103.16593, edges: [] },
+    "Blok Sutera": { id: "Blok Sutera", x: 455, y: 535, lat: 5.26039, lon: 103.16593, edges: [] }, 
 
     "Gate Kolej Kerawang": { id: "Gate Kolej Kerawang", x: 443, y: 400, lat: 5.261204, lon: 103.165841, edges: [] },
     "Gate Blok E":  { id: "Gate Blok E", x: 420, y: 375, lat: 5.261307, lon: 103.165733, edges: [] },
