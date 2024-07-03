@@ -101,8 +101,8 @@ const graph = {
     "C1-5": { id: "C1-5", x: 420, y: 40, edges: [] },
 
     "MK C1(Aras 1)": { id: "MK C1(Aras 1)", x: 360, y: 40, edges: [] },
-    "MK C2(Aras 1)": { id: "MK C1(Aras 1)", x: 390, y: 40, edges: [] },
-    "MK C3(Aras 1)": { id: "MK C1(Aras 1)", x: 405, y: 40, edges: [] },
+    "MK C2(Aras 1)": { id: "MK C2(Aras 1)", x: 390, y: 40, edges: [] },
+    "MK C3(Aras 1)": { id: "MK C3(Aras 1)", x: 405, y: 40, edges: [] },
     "Bilik Pensyarah Blok C(Aras 1)": { id: "Bilik Pensyarah Blok C(Aras 1)", x: 420, y: 40, edges: [] },
 
     "C3-1(Aras 2)": { id: "C3-1(Aras 2)", x: 360, y: 40, edges: [] },
