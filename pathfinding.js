@@ -528,7 +528,7 @@ return null; // No path found
                 alert("No path found");
             }
         } else {
-            alert("Invalid node ID(s)");
+            alert("Invalid start or destination location, please choose from available location only");
         }
     }
 
@@ -549,7 +549,7 @@ return null; // No path found
                     document.getElementById('start').value = nearestNode.id;
                     document.getElementById('nearest-node-info').innerText = `Nearest Node: ${nearestNode.id}`;
                 } else {
-                    alert("No nearest node found");
+                    alert("No nearest building found, your location maybe outside the campus");
                 }
             }, error => {
                 console.error("Error getting user location:", error);
