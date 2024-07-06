@@ -553,7 +553,7 @@ return null; // No path found
                 }
             }, error => {
                 console.error("Error getting user location:", error);
-                alert("Error getting user location. Please check your browser settings and allow location access.");
+                alert("Error getting user location. Please check your browser settings and allow location access or you can manually choose your location");
             });
 
             // Watch device orientation
