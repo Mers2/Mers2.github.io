@@ -218,7 +218,7 @@ const walkablePaths = [
     { from: "Gate Pejabat", to: "Tar2", weight: 100 },
     { from: "Gate Pejabat", to: "Pondok Polis Bantuan", weight: 100 },
     { from: "Tar2", to: "Tar3", weight: 100 },
-    { from: "Tar2", to: "Tar7", weight: 50 },
+    { from: "Tar2", to: "Tar7", weight: 100 },
     { from: "Tar3", to: "Tar4", weight: 50 },
     { from: "Tar4", to: "Dewan Lestari", weight: 50 },
     { from: "Tar4", to: "Cafe", weight: 20 },
@@ -380,7 +380,8 @@ const walkablePaths = [
     { from: "Pejabat HEP", to: "Bilik Mesyuarat", weight: 20 },
     { from: "Pejabat HEP", to: "Big Data Lab(Aras 1)", weight: 20 },
     { from: "AG", to: "Pejabat HEP", weight: 50 },
-    { from: "Tar3", to: "Pejabat HEP", weight: 50 }
+    { from: "Tar3", to: "Pejabat HEP", weight: 50 },
+    { from: "Tar3", to: "AG", weight: 50 }
 ];
 
     function viewCafeInfo() {

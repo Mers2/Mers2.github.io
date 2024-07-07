@@ -20,12 +20,11 @@ body {
   background: #fff;
   border-radius: 20px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-  padding: 20px; /* Adjusted padding */
+  padding: 40px 60px;
   text-align: center;
   color: #333;
   width: 80%;
   max-width: 800px;
-  overflow: hidden; /* Ensure contents don't overflow */
 }
 
 h2 {
@@ -126,21 +125,17 @@ input[type="text"]:focus {
 }
 
 canvas {
-  display: block;
-  width: 100%; /* Ensure canvas fills its container */
-  max-width: 100%;
-  height: auto; /* Maintain aspect ratio */
   border: 1px solid #ccc;
   border-radius: 10px;
   background: url('campus\ image.png') no-repeat center top;
-  background-size: cover; /* Adjust image to cover the canvas */
+  background-size: contain;
+  margin: 0 auto;
+  display: block;
+  height: auto;
+  width: auto;
   background-color: rgba(255, 255, 255, 0.8);
 }
-@media (max-width: 600px) {
-  .container {
-    padding: 10px; /* Adjust padding for smaller screens */
-  }
-}
+
 #location-info, #direction-info, #nearest-node-info {
   margin-top: 20px;
   font-weight: bold;
