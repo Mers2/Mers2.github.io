@@ -500,15 +500,19 @@ return null; // No path found
         ctx.stroke();
     }
 
-    // Function to draw nodes (buildings) on the canvas
-    function drawNodes(ctx) {
+   // Function to draw nodes (buildings) on the canvas
+    function drawNodes(ctx, userLocationNode, startNodeId) {
+        // Iterate over all important nodes
         for (let nodeId in importantNodes) {
             let node = importantNodes[nodeId];
+            
+            // Draw node circle
             ctx.fillStyle = 'red';
             ctx.beginPath();
             ctx.arc(node.x, node.y, 5, 0, Math.PI * 2);
             ctx.fill();
 
+            // Draw node ID and name
             ctx.font = '12px Arial';
             ctx.textAlign = 'left';
             ctx.textBaseline = 'middle';
@@ -517,26 +521,86 @@ return null; // No path found
             ctx.strokeStyle = 'black';
             ctx.strokeText(node.id, node.x + 10, node.y);
             ctx.fillText(node.id, node.x + 10, node.y);
-        }
-    }
-
-    // Function to find the path based on user input
-    function findPath() {
-        let startNodeId = document.getElementById('start').value;
-        let endNodeId = document.getElementById('end').value;
-
-        if (graph[startNodeId] && graph[endNodeId]) {
-            let path = findShortestPath(graph, startNodeId, endNodeId);
-            if (path) {
-                let ctx = document.getElementById('canvas').getContext('2d');
-                drawPath(ctx, path);
-            } else {
-                alert("No path found");
+            
+            // Check if this node is the start node
+            if (node.id === startNodeId) {
+                ctx.fillStyle = 'green'; // Change color for start node
+                ctx.beginPath();
+                ctx.arc(node.x, node.y, 7, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.fillText('Start', node.x + 10, node.y - 15); // Display 'Start' label
+                
+                // If user location node is provided and matches start node, draw 'Your Location' marker
+                if (userLocationNode && userLocationNode.id === startNodeId) {
+                    ctx.fillStyle = 'orange'; // Change color for user location marker
+                    ctx.beginPath();
+                    ctx.arc(node.x, node.y, 9, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.fillText('Your Location', node.x + 10, node.y + 15); // Display 'Your Location' label
+                }
             }
-        } else {
-            alert("Invalid start or destination location, please choose from available location only");
+            
+            // Check if this node is the end node
+            if (node.id === endNodeId) {
+                ctx.fillStyle = 'blue'; // Change color for end node
+                ctx.beginPath();
+                ctx.arc(node.x, node.y, 7, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.fillText('Destination', node.x + 10, node.y + 15); // Display 'End' label
+            }
         }
+}
+// Function to initialize the canvas and draw nodes on page load
+function initializeCanvas() {
+    const canvas = document.getElementById('canvas');
+    if (!canvas) {
+        console.error('Canvas element not found.');
+        return;
     }
+
+    const ctx = canvas.getContext('2d');
+    if (!ctx) {
+        console.error('Canvas context could not be retrieved.');
+        return;
+    }
+
+    // Draw nodes on the canvas
+    drawNodes(ctx);
+}
+// Call initializeCanvas when the page loads
+window.onload = function() {
+    initializeCanvas();
+};
+
+let startNodeId = null;
+let endNodeId = null;
+
+// Function to find the path based on user input
+function findPath() {
+    startNodeId = document.getElementById('start').value;
+    endNodeId = document.getElementById('end').value;
+
+    if (graph[startNodeId] && graph[endNodeId]) {
+        let path = findShortestPath(graph, startNodeId, endNodeId);
+        if (path) {
+            let canvas = document.getElementById('canvas');
+            let ctx = canvas.getContext('2d');
+            
+            // Clear canvas before drawing new path
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Draw nodes again to update any changes
+            drawNodes(ctx, startNodeId, endNodeId);
+
+            // Draw path
+            drawPath(ctx, path);
+        } else {
+            alert("No path found");
+        }
+    } else {
+        alert("Invalid start or destination location, please choose from available locations only");
+    }
+}
 
     // Function to get user's current position and orientation
     function getUserLocation() {
@@ -570,28 +634,6 @@ return null; // No path found
             }
         } else {
             alert("Geolocation is not supported by this browser.");
-        }
-    }
-
-    // Function to handle device orientation changes
-    function handleOrientation(event) {
-        let alpha = event.alpha;
-        if (alpha !== null) {
-            let direction = getDirection(alpha);
-            document.getElementById('direction-info').innerText = `Your device is pointing ${direction}.`;
-        }
-    }
-
-    // Function to get cardinal direction based on device alpha value
-    function getDirection(alpha) {
-        if (alpha >= 315 || alpha < 45) {
-            return 'north';
-        } else if (alpha >= 45 && alpha < 135) {
-            return 'east';
-        } else if (alpha >= 135 && alpha < 225) {
-            return 'south';
-        } else {
-            return 'west';
         }
     }
 
