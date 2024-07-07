@@ -8,7 +8,8 @@ const importantNodes = [
     { id: 'Blok B', x: 330, y: 70, lat: 5.263102, lon: 103.165157, edges: [] },
     { id: 'Blok C', x: 380, y: 40, lat: 5.263313, lon: 103.165514, edges: [] },
     { id: 'Blok A', x: 380, y: 120, lat: 5.262846, lon: 103.165473, edges: [] },
-    { id: "Pejabat Petadbiran", x: 320, y: 175, lat: 5.262513, lon: 103.165094, edges: [] }
+    { id: "Pejabat Pentadbiran", x: 320, y: 175, lat: 5.262513, lon: 103.165094, edges: [] }, 
+    { id: "Kiosk", x: 400, y: 255, lat: 5.262032, lon: 103.165544, edges: [] },
 ];
 
 const graph = {
@@ -103,7 +104,7 @@ const graph = {
     "MK C1(Aras 1)": { id: "MK C1(Aras 1)", x: 360, y: 40, edges: [] },
     "MK C2(Aras 1)": { id: "MK C2(Aras 1)", x: 390, y: 40, edges: [] },
     "MK C3(Aras 1)": { id: "MK C3(Aras 1)", x: 405, y: 40, edges: [] },
-    "Bilik Pensyarah Blok C(Aras 1)": { id: "Bilik Pensyarah Blok C(Aras 1)", x: 420, y: 40, edges: [] },
+    "Bilik Pensyarah Blok C(Aras 1)": { id: "Bilik Pensyarah Blok C(Aras 1)", x: 355, y: 40, edges: [] },
 
     "C3-1(Aras 2)": { id: "C3-1(Aras 2)", x: 360, y: 40, edges: [] },
     "C3-2(Aras 2)": { id: "C3-2(Aras 2)", x: 370, y: 40, edges: [] },
@@ -123,9 +124,9 @@ const graph = {
     "A3-1(Aras 2)": { id: "A3-1(Aras 2)", x: 350, y: 120, edges: [] },
      
     "Pejabat Pentadbiran": { id: "Pejabat Pentadbiran", x: 320, y: 175, lat: 5.262513, lon: 103.165094, edges: [] },
-    "Pejabat HEP": { id: "HEP", x: 320, y: 150, edges: [] },
+    "Pejabat HEP": { id: "Pejabat HEP", x: 320, y: 150, edges: [] },
     "Bilik Mesyuarat": { id: "Bilik Mesyuarat", x: 320, y: 170, edges: [] },
-    "Pejabat Bendahari": { id: "Bendahari", x: 320, y: 190, edges: [] },
+    "Pejabat Bendahari": { id: "Pejabat Bendahari", x: 320, y: 190, edges: [] },
     "Big Data Lab(Aras 1)": { id: "Big Data Lab(Aras 1)", x: 320, y: 170, edges: [] }
 };
 
@@ -200,6 +201,7 @@ const walkablePaths = [
     { from: "AG4", to: "Kabin 4", weight: 50 },
      //alternative path
     { from: "AG4", to: "Kiosk", weight: 40 },
+    { from: "Pejabat Ketua Pusat Pengajian", to: "Kiosk", weight: 40 },
     { from: "Tar7", to: "Kiosk", weight: 30 },
     { from: "Tar7", to: "Dataran Lestari", weight: 30 },
     { from: "Dataran Lestari", to: "Tar4", weight: 50 },
@@ -215,9 +217,9 @@ const walkablePaths = [
     { from: "Tar", to: "Gate Pejabat", weight: 250 },
     { from: "Gate Pejabat", to: "Tar2", weight: 100 },
     { from: "Gate Pejabat", to: "Pondok Polis Bantuan", weight: 100 },
-    { from: "Tar2", to: "Tar3", weight: 120 },
-    { from: "Tar2", to: "Tar7", weight: 120 },
-    { from: "Tar3", to: "Tar4", weight: 120 },
+    { from: "Tar2", to: "Tar3", weight: 100 },
+    { from: "Tar2", to: "Tar7", weight: 50 },
+    { from: "Tar3", to: "Tar4", weight: 50 },
     { from: "Tar4", to: "Dewan Lestari", weight: 50 },
     { from: "Tar4", to: "Cafe", weight: 20 },
     { from: "Tar5", to: "Dewan Lestari", weight: 50 },
@@ -321,6 +323,7 @@ const walkablePaths = [
     { from: "AG6", to: "MK C1(Aras 1)", weight: 50 },
     { from: "AG6", to: "MK C2(Aras 1)", weight: 50 },
     { from: "AG6", to: "MK C3(Aras 1)", weight: 50 },
+    { from: "AG6", to: "Bilik Pensyarah Blok C(Aras 1)", weight: 50 },
     { from: "AG6", to: "C3-1(Aras 2)", weight: 50 },
     { from: "AG6", to: "C3-2(Aras 2)", weight: 50 },
     { from: "AG6", to: "C3-3(Aras 2)", weight: 50 },
@@ -335,6 +338,7 @@ const walkablePaths = [
         { from: "Blok C", to: "MK C1(Aras 1)", weight: 50 },
         { from: "Blok C", to: "MK C2(Aras 1)", weight: 50 },
         { from: "Blok C", to: "MK C3(Aras 1)", weight: 50 },
+        { from: "Blok C", to: "Bilik Pensyarah Blok C(Aras 1)", weight: 50 },
         { from: "Blok C", to: "C3-1(Aras 2)", weight: 50 },
         { from: "Blok C", to: "C3-2(Aras 2)", weight: 50 },
         { from: "Blok C", to: "C3-3(Aras 2)", weight: 50 },
@@ -350,6 +354,7 @@ const walkablePaths = [
     { from: "AG2", to: "MK C1(Aras 1)", weight: 50 },
     { from: "AG2", to: "MK C2(Aras 1)", weight: 50 },
     { from: "AG2", to: "MK C3(Aras 1)", weight: 50 },
+    { from: "AG2", to: "Bilik Pensyarah Blok C(Aras 1)", weight: 50 },
     { from: "AG2", to: "C3-1(Aras 2)", weight: 50 },
     { from: "AG2", to: "C3-2(Aras 2)", weight: 50 },
     { from: "AG2", to: "C3-3(Aras 2)", weight: 50 },
@@ -379,8 +384,8 @@ const walkablePaths = [
 ];
 
     function viewCafeInfo() {
-        // Redirect user to cafe.html
-        window.location.href = "cafe.html";
+      // Redirect user to the cafe's Instagram page
+      window.location.href = "https://www.instagram.com/kafeuitm?igsh=bGJsdXc0aDh5bTRt&utm_source=qr"; 
     }
 
      // Add edges to the graph nodes
