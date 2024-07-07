@@ -466,7 +466,9 @@ const walkablePaths = [
         let neighbor = edge.node;
         if (closedList.includes(neighbor)) continue;
 
-        let tentativeDistanceFromStart = currentNode.distanceFromStart + edge.weight;
+        // let tentativeDistanceFromStart = currentNode.distanceFromStart + edge.weight; to include weight
+        let tentativeDistanceFromStart = currentNode.distanceFromStart;
+
         if (!openList.includes(neighbor)) {
             openList.push(neighbor);
         } else if (tentativeDistanceFromStart >= neighbor.distanceFromStart) {
@@ -626,12 +628,6 @@ function findPath() {
                 alert("Error getting user location. Please check your browser settings and allow location access or you can manually choose your location");
             });
 
-            // Watch device orientation
-            if (window.DeviceOrientationEvent) {
-                window.addEventListener('deviceorientation', handleOrientation, false);
-            } else {
-                alert("Device orientation not supported.");
-            }
         } else {
             alert("Geolocation is not supported by this browser.");
         }
